@@ -1,0 +1,1034 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alena Ryabchukova — портфолио</title>
+<meta name="description" content="Мультфильмы, фильмы и Reels, созданные нейросетями. Рекламные ролики для вашего продукта.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3F3F1;
+    --dot:#D5D5D0;
+    --ink:#1E252B;
+    --muted:#6B7177;
+    --pink:#F7A8C8;
+    --pink-d:#F07FB0;
+    --pink-l:#FCD3E4;
+    --green:#3BD16F;
+    --green-d:#1E9E4C;
+    --yellow:#FFE45C;
+    --card:#FFFFFF;
+    --line:#E4E4E0;
+    --shadow:0 18px 40px -18px rgba(30,37,43,.35);
+    --radius:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Manrope,system-ui,sans-serif;
+    color:var(--ink);
+    background-color:var(--bg);
+    background-image:radial-gradient(var(--dot) 1.2px, transparent 1.3px);
+    background-size:26px 26px;
+    overflow-x:hidden;
+    line-height:1.5;
+  }
+  a{color:inherit}
+  .mark{background:linear-gradient(transparent 52%, var(--yellow) 52%, var(--yellow) 92%, transparent 92%);padding:0 .1em}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+  @media (max-width:600px){.wrap{padding:0 16px}}
+
+  /* ---------- Верхняя панель ---------- */
+  .menubar{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;gap:18px;
+    padding:8px 20px;
+    background:rgba(255,255,255,.72);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+    font-size:14px;font-weight:600;
+  }
+  .menubar .logo{display:flex;align-items:center;gap:8px;font-family:Unbounded;font-weight:700;text-decoration:none}
+  .menubar .logo .logo-gem{display:inline-block;animation:floatSmall 2.6s ease-in-out infinite}
+  @keyframes floatSmall{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  .menubar .logo .logo-gem .g3-k{filter:drop-shadow(0 0 4px rgba(59,209,111,.7))}
+  .menubar .logo .logo-gem .g3-spin{animation-duration:3.5s}
+  .menubar .logo:hover .logo-gem .g3-spin{animation-duration:1s}
+  .menubar nav{display:flex;gap:16px}
+  .menubar nav a{text-decoration:none;opacity:.75}
+  .menubar nav a:hover{opacity:1}
+  .menubar .right{margin-left:auto;display:flex;align-items:center;gap:14px;opacity:.8}
+  @media (max-width:720px){.menubar nav{display:none}}
+
+  /* ---------- Плюмбоб ---------- */
+  .plumbob{display:block;filter:drop-shadow(0 0 18px rgba(59,209,111,.55))}
+  .plumbob-float{animation:float 4s ease-in-out infinite}
+  .plumbob-spin{animation:spin 6s linear infinite;transform-origin:center}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+  @keyframes spin{0%{transform:scaleX(1)}25%{transform:scaleX(.35)}50%{transform:scaleX(-1)}75%{transform:scaleX(-.35)}100%{transform:scaleX(1)}}
+
+  /* ---------- 3D-плюмбоб (8 граней, чистый CSS 3D) ----------
+     Базовая геометрия: полувысота 80px, радиус 34px.
+     Размер меняется через --k (масштаб). */
+  .g3{
+    --k:1;
+    width:calc(80px * var(--k));height:calc(170px * var(--k));
+    display:grid;place-items:center;position:relative;
+  }
+  .g3-k{filter:drop-shadow(0 0 calc(16px * var(--k)) rgba(59,209,111,.6))}
+  .g3-k{perspective:600px;transform:scale(var(--k));transform-style:preserve-3d}
+  .g3-tilt{transform:rotateX(-12deg);transform-style:preserve-3d}
+  .g3-spin{position:relative;width:0;height:0;transform-style:preserve-3d;animation:g3spin 7s linear infinite}
+  @keyframes g3spin{to{transform:rotateY(360deg)}}
+  .g3 .f{position:absolute;left:-24.04px;width:48.08px;height:83.53px}
+  .g3 .f.t{top:-83.53px;transform-origin:50% 100%;clip-path:polygon(50% 0,100% 100%,0 100%)}
+  .g3 .f.b{top:0;transform-origin:50% 0;clip-path:polygon(0 0,100% 0,50% 100%)}
+  .g3 .f.t1{transform:rotateY(0deg)   translateZ(24.04px) rotateX(16.73deg);background:linear-gradient(180deg,#E2FFD9,#8CF58C)}
+  .g3 .f.t2{transform:rotateY(90deg)  translateZ(24.04px) rotateX(16.73deg);background:linear-gradient(180deg,#B9FFB0,#4FDB62)}
+  .g3 .f.t3{transform:rotateY(180deg) translateZ(24.04px) rotateX(16.73deg);background:linear-gradient(180deg,#8EEB8E,#2DB24A)}
+  .g3 .f.t4{transform:rotateY(270deg) translateZ(24.04px) rotateX(16.73deg);background:linear-gradient(180deg,#C8FFC0,#62E472)}
+  .g3 .f.b1{transform:rotateY(0deg)   translateZ(24.04px) rotateX(-16.73deg);background:linear-gradient(180deg,#46D35E,#178A36)}
+  .g3 .f.b2{transform:rotateY(90deg)  translateZ(24.04px) rotateX(-16.73deg);background:linear-gradient(180deg,#2FBF4C,#0F6E2A)}
+  .g3 .f.b3{transform:rotateY(180deg) translateZ(24.04px) rotateX(-16.73deg);background:linear-gradient(180deg,#22A740,#0B5A22)}
+  .g3 .f.b4{transform:rotateY(270deg) translateZ(24.04px) rotateX(-16.73deg);background:linear-gradient(180deg,#3BCB55,#13802F)}
+  .item:hover .g3-spin{animation-duration:1.6s}
+
+  /* ---------- Рабочее пространство: профиль слева, проекты справа ---------- */
+  .panel{background:rgba(255,255,255,.55);border:1px solid var(--line);border-radius:28px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  }
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink-d)}
+  .top-eyebrow{margin:26px 0 14px}
+  /* Обе колонки одной высоты: верх и низ на одной линии */
+  .studio{display:grid;grid-template-columns:320px 1fr;gap:24px;align-items:stretch;margin-top:28px}
+  .profile{position:relative;padding:92px 22px 24px;display:flex;flex-direction:column}
+  .profile .actions{margin-top:auto;padding-top:20px}
+  .work{display:flex;flex-direction:column;gap:24px}
+  .profile .gem-above{position:absolute;left:50%;top:6px;transform:translateX(-50%);z-index:2}
+  .profile .avatar-card{
+    aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#F1E4D6;
+    border:8px solid #fff;box-shadow:0 24px 44px -26px rgba(30,37,43,.5);
+    transform:rotate(-2deg);transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+  }
+  .profile .avatar-card img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+  .profile:hover .avatar-card{transform:rotate(0) scale(1.01)}
+  .profile h1{font-family:Unbounded;font-weight:600;font-size:34px;line-height:1.05;letter-spacing:-.02em;margin-top:22px}
+  .profile .role{margin-top:8px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-d)}
+  .profile .bio{margin-top:14px;font-size:15px;line-height:1.55;color:#3a4249}
+  .profile .actions{display:flex;flex-wrap:wrap;gap:8px}
+  .work-head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin:-22px 4px 0;position:relative;z-index:1}
+  .counter{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.06em}
+  .cards{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .card{padding:22px 24px;display:flex;flex-direction:column}
+  .card .meta-note{margin-top:auto;padding-top:14px}
+  .big-stat{margin-top:auto;padding-top:18px;display:flex;flex-direction:column}
+  .big-stat b{font-family:Unbounded;font-weight:600;font-size:30px;letter-spacing:-.02em;line-height:1}
+  .big-stat span{font-size:12px;color:var(--muted);margin-top:6px}
+  /* Showreel: горизонтальный 16:9 на всю ширину */
+  .showreel{
+    position:relative;overflow:hidden;margin-top:24px;aspect-ratio:16/9;
+    background:#14161A;color:#fff;border:8px solid #fff;
+    box-shadow:0 30px 60px -36px rgba(30,37,43,.5);
+  }
+  .showreel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .showreel::after{
+    content:"";position:absolute;inset:0;pointer-events:none;transition:opacity .3s;
+    background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.55));
+  }
+  .sr-label{position:absolute;left:28px;bottom:24px;z-index:1;display:flex;flex-direction:column;gap:6px;transition:opacity .3s}
+  .sr-label .eyebrow{color:rgba(255,255,255,.8)}
+  .sr-label b{font-family:Unbounded;font-weight:600;font-size:clamp(18px,2.4vw,30px);letter-spacing:-.01em}
+  @media (max-width:560px){
+    .showreel{border-width:5px;border-radius:20px}
+    .sr-label{left:16px;bottom:14px}
+    .sr-label b{font-size:15px}  }
+  .card-head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .views-total{font-size:12px;font-weight:800;color:var(--ink);background:var(--pink-l);padding:4px 10px;border-radius:999px}
+  .list{list-style:none;margin-top:10px}
+  .list a{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding:12px 0;border-bottom:1px solid var(--line);
+    font-weight:700;text-decoration:none;transition:color .2s;
+  }
+  .list li:last-child a{border-bottom:0}
+  .meta-note{margin-top:10px;font-size:11px;line-height:1.4;color:var(--muted)}
+  .list a:hover{color:var(--pink-d)}
+  .list .n{font-style:normal;font-size:11px;color:var(--muted);margin-right:12px}
+  .list .arr{transition:transform .2s;color:var(--muted)}
+  .list a:hover .arr{transform:translate(3px,-3px);color:var(--pink-d)}
+  @media (max-width:900px){
+    .studio{grid-template-columns:1fr}
+    .profile{max-width:440px;width:100%;margin:0 auto}
+  }
+  @media (max-width:640px){.cards{grid-template-columns:1fr}}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 26px;border-radius:999px;border:2px solid var(--ink);
+    font-weight:800;font-size:16px;text-decoration:none;cursor:pointer;
+    background:var(--ink);color:#fff;
+    transition:transform .2s, box-shadow .2s;
+  }
+  .btn:hover{transform:translateY(-3px);box-shadow:0 10px 0 -2px var(--pink-d)}
+  .btn.ghost{background:#fff;color:var(--ink)}
+  .btn.sm{padding:11px 18px;font-size:14px}
+
+  /* ---------- Рабочий стол ---------- */
+  .section-title{
+    font-family:Unbounded;font-weight:700;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.02em;
+    margin-bottom:10px;
+  }
+  .section-sub{color:var(--muted);margin-bottom:30px;max-width:640px}
+  .desktop{
+    position:relative;
+    background:rgba(255,255,255,.55);
+    border:1px solid var(--line);border-radius:28px;
+    padding:44px 20px 36px;
+    display:grid;grid-template-columns:repeat(var(--cols,4),1fr);gap:40px 12px;
+    overflow:hidden;container-type:inline-size;
+  }
+  .desktop::before{
+    content:"WHAT IS READY? SET. CREATE!";
+    position:absolute;inset:0;display:grid;place-items:center;text-align:center;
+    font-family:Unbounded;font-weight:900;font-size:clamp(28px,4.6vw,60px);line-height:.95;
+    color:rgba(30,37,43,.04);padding:30px;pointer-events:none;letter-spacing:-.03em;
+  }
+  /* Размер папки подстраивается под ширину блока с папками */
+  .desktop .item{--fw:min(156px, calc(100cqw / var(--cols,4) - 26px))}
+  @media (max-width:520px){
+    .desktop{grid-template-columns:repeat(2,1fr);padding:34px 12px 30px;gap:30px 8px}
+    .desktop .item{--fw:min(120px, calc(50cqw - 36px))}
+  }
+  /* Единая высота зоны иконки — подписи стоят на одной линии */
+  .ibox{height:calc(var(--fw) * .86);display:flex;align-items:flex-end;justify-content:center}
+
+  .item{display:flex;flex-direction:column;align-items:center;gap:12px;cursor:pointer;
+    background:none;border:0;font:inherit;color:inherit;position:relative;z-index:1}
+  .item:focus-visible{outline:none}
+  .item:focus-visible .label{outline:2px solid var(--pink-d);outline-offset:3px}
+  .item .label{
+    text-align:center;font-size:14px;font-weight:700;line-height:1.25;
+    padding:3px 9px;border-radius:7px;transition:background .2s,color .2s;
+  }
+  .item .label small{display:block;font-weight:500;color:var(--muted);font-size:12px}
+  .item:hover .label{background:#3b82f6;color:#fff}
+  .item:hover .label small{color:rgba(255,255,255,.8)}
+
+  /* Папка */
+  .folder{
+    position:relative;width:var(--fw,128px);height:calc(var(--fw,128px) * .75);
+    perspective:500px;
+    transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  }
+  /* Матовое розовое стекло */
+  .folder .back{
+    position:absolute;inset:8px 0 0 0;border-radius:6px 12px 10px 10px;
+    background:linear-gradient(180deg,rgba(240,127,176,.62),rgba(240,127,176,.42));
+    border:1px solid rgba(255,255,255,.45);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  }
+  .folder .back::before{ /* вкладка */
+    content:"";position:absolute;left:-1px;top:-11px;width:46%;height:14px;
+    background:rgba(240,127,176,.62);border-radius:7px 9px 0 0;
+    border:1px solid rgba(255,255,255,.45);border-bottom:0;
+  }
+  .folder .paper{
+    position:absolute;left:12%;right:12%;top:6px;bottom:10px;border-radius:5px;
+    background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);
+    transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+    overflow:hidden;
+  }
+  .folder .paper.p2{left:18%;right:6%;background:#FFF6D6;top:10px}
+  .folder .paper.p3{left:8%;right:18%;top:12px;background:linear-gradient(135deg,#B7F5CB,#9AD7FF)}
+  .folder .paper::after{
+    content:"";position:absolute;left:10%;right:10%;top:12%;height:3px;border-radius:2px;
+    background:rgba(30,37,43,.15);box-shadow:0 7px 0 rgba(30,37,43,.12),0 14px 0 rgba(30,37,43,.1);
+  }
+  .folder .paper.p3::after{display:none}
+  /* Свои картинки внутри папки */
+  .folder .paper.has-img{background-size:cover;background-position:center;border:2px solid #fff}
+  .folder .paper.has-img::after{display:none}
+  .item:hover .paper.has-img.p1{transform:translate(-16px,-30px) rotate(-12deg) scale(1.18)}
+  .item:hover .paper.has-img.p2{transform:translate(16px,-38px) rotate(10deg) scale(1.18)}
+  .item:hover .paper.has-img.p3{transform:translateY(-26px) rotate(-2deg) scale(1.12)}
+  .folder .front{
+    position:absolute;left:0;right:0;bottom:0;height:78%;
+    border-radius:8px 8px 10px 10px;
+    background:linear-gradient(165deg,rgba(255,220,235,.72) 0%,rgba(248,160,198,.55) 100%);
+    backdrop-filter:blur(9px) saturate(150%);-webkit-backdrop-filter:blur(9px) saturate(150%);
+    border:1px solid rgba(255,255,255,.75);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.95),
+      inset 0 -12px 22px rgba(255,255,255,.22),
+      0 16px 26px -14px rgba(240,127,176,.85);
+    transform-origin:bottom center;
+    transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+    overflow:hidden;
+  }
+  .folder .front .num{
+    position:absolute;left:9px;bottom:7px;z-index:1;
+    font-size:10px;font-weight:800;letter-spacing:.06em;color:rgba(30,37,43,.5);
+  }
+  .folder .front::before{ /* блик на стекле */
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(120deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 38%);
+    pointer-events:none;
+  }
+  .item:hover .folder,.item:focus-visible .folder{transform:translateY(-8px) rotate(-3deg);animation:wiggle .9s ease-in-out .35s infinite}
+  .item:hover .folder .front,.item:focus-visible .folder .front{transform:rotateX(-28deg)}
+  .item:hover .paper.p1{transform:translateY(-22px) rotate(-7deg)}
+  .item:hover .paper.p2{transform:translateY(-30px) rotate(6deg)}
+  .item:hover .paper.p3{transform:translateY(-16px) rotate(-1deg)}
+  @keyframes wiggle{0%,100%{transform:translateY(-8px) rotate(-3deg)}50%{transform:translateY(-11px) rotate(2deg)}}
+
+  /* Иконка-файл (для «Обо мне», «Контакты») */
+  .doc-icon{
+    width:calc(var(--fw,128px) * .62);height:calc(var(--fw,128px) * .8);border-radius:8px;background:#fff;position:relative;
+    box-shadow:0 12px 22px -14px rgba(0,0,0,.5);display:grid;place-items:center;font-size:30px;
+    transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+    clip-path:polygon(0 0,72% 0,100% 22%,100% 100%,0 100%);
+  }
+  .doc-icon::before{ /* строчки текста */
+    content:"";position:absolute;left:16%;right:16%;top:36%;height:3px;border-radius:2px;
+    background:rgba(240,127,176,.55);
+    box-shadow:0 9px 0 rgba(30,37,43,.12),0 18px 0 rgba(30,37,43,.12),0 27px 0 rgba(30,37,43,.08);
+  }
+  .doc-icon::after{content:"";position:absolute;right:0;top:0;width:28%;height:22%;background:#E9E9E4;border-bottom-left-radius:6px}
+  .item:hover .doc-icon{transform:translateY(-8px) rotate(4deg)}
+
+  /* «Обо мне»: аватарка-сим с кристаллом над головой */
+  .me-icon{position:relative;width:calc(var(--fw,128px) * .6)}
+  .me-gem{position:absolute;left:50%;top:-30px;transform:translateX(-50%);z-index:2}
+  .me-gem .g3{animation:floatSmall 2.6s ease-in-out infinite}
+  .me-photo{
+    aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#F1E4D6;
+    border:4px solid #fff;box-shadow:0 12px 22px -12px rgba(30,37,43,.5);
+    transform:rotate(-3deg);transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  }
+  .me-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+  .item:hover .me-photo{transform:translateY(-6px) rotate(2deg)}
+  .item:hover .me-gem .g3-spin{animation-duration:1.4s}
+  .sims-icon{
+    display:grid;place-items:end center;
+    transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+  }
+  .item:hover .sims-icon{transform:translateY(-10px) scale(1.08)}
+
+  /* ---------- Футер ---------- */
+  footer{margin:36px 0 30px}
+  .links{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+  .chip{background:#fff;border-radius:999px;padding:10px 18px;font-weight:700;text-decoration:none;transition:transform .2s}
+  .chip:hover{transform:translateY(-3px) rotate(-2deg)}
+  .copy{text-align:center;color:var(--muted);font-size:12px;letter-spacing:.06em}
+
+  /* ---------- Окно Finder ---------- */
+  .overlay{
+    position:fixed;inset:0;z-index:100;background:rgba(30,37,43,.28);
+    backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+    display:none;align-items:center;justify-content:center;padding:16px;
+  }
+  .overlay.open{display:flex}
+  .window{
+    width:min(920px,100%);max-height:min(82vh,760px);display:flex;flex-direction:column;
+    background:#fff;border-radius:16px;overflow:hidden;
+    box-shadow:0 40px 80px -20px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.06);
+    animation:pop .35s cubic-bezier(.34,1.56,.64,1);
+    position:relative;
+  }
+  @keyframes pop{from{transform:scale(.85) translateY(20px);opacity:0}to{transform:none;opacity:1}}
+  .titlebar{
+    display:flex;align-items:center;gap:12px;padding:12px 16px;
+    background:#F6F6F4;border-bottom:1px solid var(--line);cursor:grab;user-select:none;
+  }
+  .titlebar:active{cursor:grabbing}
+  .lights{display:flex;gap:8px}
+  .lights button{width:13px;height:13px;border-radius:50%;border:0;cursor:pointer}
+  .lights .r{background:#FF5F57}.lights .y{background:#FEBC2E}.lights .g{background:#28C840}
+  .titlebar .path{font-size:13px;font-weight:700;color:var(--muted);display:flex;align-items:center;gap:6px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+  .titlebar .path .mini-folder{width:16px;height:12px;background:var(--pink);border-radius:2px 3px 2px 2px;flex:none}
+  .win-body{padding:24px;overflow:auto}
+  .win-body h3{font-family:Unbounded;font-size:22px;margin-bottom:6px}
+  .win-body .desc{color:var(--muted);margin-bottom:22px;max-width:640px}
+  .files{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px}
+  .files.wide{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+  .file{display:flex;flex-direction:column;gap:8px}
+  .thumb{
+    position:relative;border-radius:14px;overflow:hidden;aspect-ratio:9/16;
+    display:grid;place-items:center;color:#fff;
+    transition:transform .3s;
+  }
+  .files.wide .thumb{aspect-ratio:16/9}
+  .thumb video{width:100%;height:100%;object-fit:cover;display:block;cursor:pointer}
+  .thumb video[controls]{object-fit:contain;background:#000}
+  /* Серия + статистика: высоты совпадают (видео 16:9, скриншот 590×951) */
+  .file.episode{
+    grid-column:1/-1;display:grid;grid-template-columns:1fr .349fr;gap:8px 14px;
+    padding-bottom:18px;border-bottom:1px dashed var(--line);
+  }
+  .file.episode .thumb{aspect-ratio:16/9}
+  .file.episode .thumb.stats{aspect-ratio:auto;height:100%;cursor:zoom-in;background:#0F1115}
+  .thumb.stats img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+  .thumb.stats .stats-tag{
+    position:absolute;left:6px;right:6px;bottom:6px;text-align:center;
+    background:rgba(255,255,255,.92);color:var(--ink);font-size:11px;font-weight:800;
+    padding:4px 6px;border-radius:8px;
+  }
+  /* Мультфильм: видео + кадры */
+  .file.cartoon{grid-column:1/-1;display:grid;gap:10px;padding-bottom:22px;border-bottom:1px dashed var(--line)}
+  .file.cartoon > .thumb{aspect-ratio:16/9}
+  .file.cartoon > .thumb video{object-fit:contain}
+  .frames{display:grid;grid-template-columns:repeat(var(--cols,4),1fr);gap:10px}
+  .frames .thumb{aspect-ratio:1/1;border-radius:12px}
+  @media (max-width:560px){.frames{grid-template-columns:repeat(2,1fr)}}
+  /* Вертикальный мультфильм 9:16: видео + 4 кадра в один ряд */
+  .file.cartoon.vertical{grid-template-columns:repeat(5,1fr);align-items:start}
+  .file.cartoon.vertical > .thumb{aspect-ratio:9/16;grid-column:1;grid-row:1}
+  .file.cartoon.vertical > .thumb video{object-fit:cover}
+  .file.cartoon.vertical .frames{grid-column:2/-1;grid-row:1}
+  .file.cartoon.vertical .frames .thumb{aspect-ratio:9/16}
+  .file.cartoon.vertical .ep-info{grid-row:2}
+  @media (max-width:560px){
+    .file.cartoon.vertical{grid-template-columns:1fr 1fr}
+    .file.cartoon.vertical .frames{grid-column:2;grid-template-columns:1fr 1fr}
+  }
+  /* Вертикальная серия 9:16: видео | статистика | подпись */
+  .file.episode.vertical{grid-template-columns:auto auto 1fr;gap:14px;align-items:start}
+  .file.episode.vertical .thumb{height:420px;aspect-ratio:9/16}
+  .file.episode.vertical .thumb.stats{height:420px;aspect-ratio:788/1280}
+  .file.episode.vertical .ep-info{grid-column:3;grid-row:1;flex-direction:column;align-items:flex-start;padding-top:6px}
+  @media (max-width:700px){
+    .file.episode.vertical{grid-template-columns:1fr 1fr}
+    .file.episode.vertical .thumb,.file.episode.vertical .thumb.stats{height:auto;width:100%}
+    .file.episode.vertical .ep-info{grid-column:1/-1;grid-row:2}
+  }
+  /* Крупные цифры в окне папки */
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:-6px 0 24px}
+  .facts div{background:var(--pink-l);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+  .facts b{font-family:Unbounded;font-weight:600;font-size:clamp(18px,2.6vw,28px);letter-spacing:-.02em;line-height:1.05}
+  .facts span{font-size:13px;color:var(--muted);font-weight:700}
+  @media (max-width:560px){.facts{grid-template-columns:1fr}}
+  .ep-info{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+  .ep-info b{font-size:16px}
+  .views{background:var(--pink-l);color:var(--ink);font-size:13px;font-weight:800;padding:4px 10px;border-radius:999px}
+  .thumb.is-img{cursor:zoom-in;background:#F1E4D6}
+  .thumb.is-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+  /* Просмотр картинки */
+  .lightbox{
+    position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;
+    background:rgba(20,22,26,.82);padding:16px;cursor:zoom-out;
+  }
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:100%;max-height:90vh;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.5);animation:pop .3s ease-out}
+  .file:hover .thumb{transform:translateY(-4px) rotate(-1deg)}
+  .thumb .play{
+    width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.9);
+    display:grid;place-items:center;color:var(--ink);font-size:18px;padding-left:3px;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+  }
+  .thumb .dur{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.5);font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px}
+  .file b{font-size:14px;line-height:1.25}
+  .file .ftag{font-size:11px;font-weight:700;color:var(--pink-d);text-transform:uppercase;letter-spacing:.05em}
+  .win-body .placeholder-note{font-size:12px;color:var(--muted);margin-top:20px;border-top:1px dashed var(--line);padding-top:12px}
+  .win-body .about{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:start}
+  .win-body .avatar-wrap{position:relative;margin-top:50px;max-width:160px}
+  .win-body .avatar-gem{position:absolute;left:50%;top:-62px;transform:translateX(-50%);z-index:2}
+  .win-body .avatar-gem .g3{animation:floatSmall 2.6s ease-in-out infinite}
+  .win-body .avatar{aspect-ratio:3/4;border-radius:18px;overflow:hidden;background:#F1E4D6;border:5px solid #fff;box-shadow:0 14px 30px -16px rgba(30,37,43,.5);transform:rotate(-2deg)}
+  .win-body .avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+  .win-body .tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .win-body .tools span{background:#F3F3F1;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
+  .win-body .tools span.more{background:none;border:1px dashed var(--line);color:var(--muted)}
+  @media (max-width:560px){.win-body .about{grid-template-columns:1fr}.win-body .avatar-wrap{max-width:140px}.files{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- Блёстки ---------- */
+  .sparkle{
+    position:fixed;pointer-events:none;z-index:999;
+    width:var(--s);height:var(--s);margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);
+    animation:sparkle 1s ease-out forwards;
+  }
+  .sparkle svg{width:100%;height:100%;display:block;overflow:visible;filter:drop-shadow(0 0 3px rgba(240,127,176,.7))}
+  @keyframes sparkle{
+    0%{transform:translate(0,0) scale(0) rotate(0);opacity:1}
+    25%{transform:translate(calc(var(--dx)*.25),calc(var(--dy)*.25)) scale(1) rotate(25deg);opacity:1}
+    100%{transform:translate(var(--dx),var(--dy)) scale(.3) rotate(70deg);opacity:0}
+  }
+
+  /* Появление при скролле */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s, transform .7s}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none !important;transition:none !important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- Шаблон кристалла-плюмбоба (переиспользуется ниже) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Розовый перелив для звёздочек -->
+    <linearGradient id="starfill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFE3EF"/>
+      <stop offset=".45" stop-color="#F7A8C8"/>
+      <stop offset="1" stop-color="#E86FA3"/>
+    </linearGradient>
+    <!-- Тонкая четырёхлучевая звезда -->
+    <symbol id="star" viewBox="0 0 24 24">
+      <path fill="url(#starfill)" d="M12 0 C12.5 7.5 16.5 11.5 24 12 C16.5 12.5 12.5 16.5 12 24 C11.5 16.5 7.5 12.5 0 12 C7.5 11.5 11.5 7.5 12 0Z"/>
+    </symbol>
+    <symbol id="gem" viewBox="0 0 100 170">
+      <polygon points="50,0 0,85 46,85" fill="#9BF59B"/>
+      <polygon points="50,0 46,85 100,85" fill="#47D65A"/>
+      <polygon points="0,85 46,85 50,170" fill="#2FB84A"/>
+      <polygon points="46,85 100,85 50,170" fill="#178A36"/>
+      <polygon points="50,0 30,52 46,85" fill="#C9FFC4" opacity=".7"/>
+      <polygon points="46,85 72,110 50,170" fill="#0F6E2A" opacity=".45"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="menubar">
+  <a class="logo" href="#top"><span class="logo-gem plumbob-float"><span class="g3" style="--k:.14"></span></span> Alena Ryabchukova</a>
+  <nav>
+    <a href="#desktop">Работы</a>
+    <a href="#top" data-open="about">Обо мне</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+  <div class="right">
+    <span>🔋</span><span>📶</span>
+    <span id="clock">--:--</span>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+
+  <div class="studio">
+    <!-- ПРОФИЛЬ -->
+    <aside class="panel profile">
+      <div class="gem-above" aria-hidden="true"><div class="plumbob-float"><div class="g3" style="--k:.48"></div></div></div>
+      <div class="avatar-card"><img src="media/аватарка/avatar.jpg" alt="Алёна Рябчукова — AI-режиссер"></div>
+      <h1>Алёна Рябчукова</h1>
+      <p class="role">AI-режиссер · аниматор</p>
+      <p class="bio">Оживляю идеи: создаю мультсериалы и фильмы в ИИ — от сценария до финального ролика.</p>
+      <div class="actions">
+        <a class="btn sm" href="#contacts" data-open="sims">Обсудить проект ✦</a>
+        <a class="btn ghost sm" href="#top" data-open="about">Обо мне</a>
+      </div>
+    </aside>
+
+    <!-- ПРОЕКТЫ -->
+    <section class="work" id="desktop">
+      <div class="panel desktop" id="desk">
+        <div class="work-head">
+          <span class="eyebrow">Проекты</span>
+          <span class="counter" id="counter"></span>
+        </div>
+        <!-- папки добавляются сюда из JS -->
+      </div>
+
+      <div class="cards" id="contacts">
+        <div class="panel card">
+          <div class="card-head"><span class="eyebrow">Форматы</span></div>
+          <ul class="list">
+            <li><a href="#desktop" data-open="cartoons"><span><i class="n">01</i>Мультсериалы</span><span class="arr">↗</span></a></li>
+            <li><a href="#desktop" data-open="reels"><span><i class="n">02</i>Короткие истории</span><span class="arr">↗</span></a></li>
+            <li><a href="#desktop" data-open="ads"><span><i class="n">03</i>AI-реализм</span><span class="arr">↗</span></a></li>
+          </ul>
+          <div class="big-stat"><b>26 млн+</b><span>просмотров суммарно</span></div>
+        </div>
+        <div class="panel card">
+          <div class="card-head"><span class="eyebrow">Контакты</span></div>
+          <ul class="list">
+            <li><a href="https://t.me/alenamarkova26" target="_blank" rel="noopener"><span>Telegram</span><span class="arr">↗</span></a></li>
+            <li><a href="https://www.instagram.com/creator_alena/" target="_blank" rel="noopener"><span>Instagram*</span><span class="arr">↗</span></a></li>
+            <li><a href="https://www.tiktok.com/@creator_alena1" target="_blank" rel="noopener"><span>TikTok</span><span class="arr">↗</span></a></li>
+          </ul>
+          <p class="meta-note">* Meta Platforms Inc. признана экстремистской организацией, её деятельность запрещена на территории РФ.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- SHOWREEL: крутится по кругу -->
+  <section class="panel showreel" id="showreel">
+    <video src="media/showreel.mp4" autoplay muted loop playsinline preload="auto"></video>
+    <div class="sr-label"><b>Showreel</b></div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p class="copy">© 2026 Алёна Рябчукова</p>
+</footer>
+
+<!-- Окно -->
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="window" id="win" role="dialog" aria-modal="true" aria-labelledby="winTitle">
+    <div class="titlebar" id="titlebar">
+      <div class="lights">
+        <button class="r" data-close aria-label="Закрыть"></button>
+        <button class="y" data-close aria-label="Свернуть"></button>
+        <button class="g" aria-label="Развернуть"></button>
+      </div>
+      <div class="path"><span class="mini-folder"></span><span id="winPath">Рабочий стол</span></div>
+    </div>
+    <div class="win-body" id="winBody"></div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()"><img alt=""></div>
+
+<script>
+/* =========================================================
+   ДАННЫЕ ПАПОК
+   Чтобы показать своё видео: положи файл в папку media/
+   и впиши путь в поле src, например src:'media/reels-1.mp4'
+   ========================================================= */
+const G = [
+  'linear-gradient(160deg,#FF9EC7,#7B6CF6)',
+  'linear-gradient(160deg,#9AD7FF,#3BD16F)',
+  'linear-gradient(160deg,#FFE45C,#FF7A59)',
+  'linear-gradient(160deg,#B7F5CB,#4A9DFF)',
+  'linear-gradient(160deg,#2B2D42,#F07FB0)',
+  'linear-gradient(160deg,#FFC6A8,#C86BFA)'
+];
+
+// Папка с мультфильмами и короткая запись для одного мультфильма
+const CART = 'media/Мультфильмы/мультфильм Прошка и золотой ключик/';
+const cartoon = (name, video, frames, views) => ({
+  // просмотры у отдельных роликов не показываем — только общая цифра в описании папки
+  name, tag:'Короткая история', dur:'', src: CART + video,
+  frames: frames.map(f => CART + 'web/' + f),
+});
+// Мультсериал «Захар Горожанкин»
+const ZAKH = 'media/Мультфильмы/Мульфильм Захар Горожанкин/';
+// Фильмы: у каждого своя папка внутри media/Фильмы
+const FILM = 'media/Фильмы/';
+const film = (dir, name, video, frames) => ({
+  name, tag:'Фильм', dur:'', src: FILM + dir + '/' + video,
+  frames: frames.map(f => FILM + dir + '/web/' + f),
+});
+
+const folders = [
+  { id:'about', icon:'🙋', title:'Обо мне.txt', sub:'Алёна Рябчукова', type:'about', me:true, hidden:true },
+  { id:'zakhar', icon:'🚒', title:'Мультсериал «Захар Горожанкин»', sub:'AI-анимация', type:'files', wide:true,
+    desc:'Сериал про простого парня — пожарного Захара. Зрители очень полюбили его за доброту: Захар — честный и добрый парень, а Машка постоянно требует у него деньги и пытается его подставить.',
+    // крупные цифры вверху окна
+    facts:[['46','серий'], ['22 500 000+','просмотров'], ['28 000+','подписчиков']],
+    peek:[
+      ZAKH + 'web/столовка у захара.jpg',
+      ZAKH + 'web/генерал.jpg',
+      ZAKH + 'web/столовка внутри.jpg',
+    ],
+    files:[
+      {name:'Жизнь обычного пожарного. Часть 2', tag:'Мультсериал', dur:'', src: ZAKH + '1.mp4',
+       stats: ZAKH + '1.jpg', views:'3,3 млн просмотров', vertical:true},
+      {name:'Жизнь обычного пожарного. Часть 3', tag:'Мультсериал', dur:'', src: ZAKH + '2.mp4',
+       stats: ZAKH + '2.jpg', views:'785 тыс. просмотров', vertical:true},
+      {name:'Новая история пожарного. 2 серия', tag:'Мультсериал', dur:'', src: ZAKH + '3.mp4',
+       stats: ZAKH + '3.jpg', views:'190 тыс. просмотров', vertical:true},
+      // кадры без подписей
+      {img: ZAKH + 'web/захар раскадрорвка.jpg'},
+      {img: ZAKH + 'web/генерал.jpg'},
+      {img: ZAKH + 'web/столовка внутри.jpg'},
+      {img: ZAKH + 'web/столовка у захара.jpg'},
+    ]},
+  { id:'cartoons', icon:'🎬', title:'Мультсериал «1001 Просекко»', sub:'AI-анимация', type:'files', wide:true,
+    desc:'Авторский AI-мультсериал: сказочный восток, роскошь, интриги и немного игристого. Персонажи, декорации и анимация созданы с помощью нейросетей. <span class="mark"><b>Суммарно сериал принёс 1 400 000+ просмотров</b></span>.',
+    // картинки, которые выглядывают из папки при наведении
+    peek:[
+      'media/Мультфильмы/сериал про волочкову/web/кровать.jpg',
+      'media/Мультфильмы/сериал про волочкову/web/гости.jpg',
+      'media/Мультфильмы/сериал про волочкову/web/0_0.jpg',
+    ],
+    files:[
+      // stats — скриншот статистики рядом с серией, views — плашка с просмотрами
+      {name:'1 серия', tag:'Мультсериал', dur:'', src:'media/Мультфильмы/сериал про волочкову/1 серия.mp4',
+       stats:'media/Мультфильмы/сериал про волочкову/статистика 1 серия.jpg', views:'480 тыс. просмотров'},
+      {name:'2 серия', tag:'Мультсериал', dur:'', src:'media/Мультфильмы/сериал про волочкову/2 серия.mp4',
+       stats:'media/Мультфильмы/сериал про волочкову/статистика 2 серия.jpg', views:'297 тыс. просмотров'},
+      {name:'3 серия', tag:'Мультсериал', dur:'', src:'media/Мультфильмы/сериал про волочкову/3 серия.mp4',
+       stats:'media/Мультфильмы/сериал про волочкову/статистика 3 серия.jpg', views:'62 тыс. просмотров'},
+      // кадры без подписей
+      {img:'media/Мультфильмы/сериал про волочкову/web/0_0.jpg'},
+      {img:'media/Мультфильмы/сериал про волочкову/web/0_3.jpg'},
+      {img:'media/Мультфильмы/сериал про волочкову/web/гости.jpg'},
+      {img:'media/Мультфильмы/сериал про волочкову/web/кровать.jpg'},
+      {img:'media/Мультфильмы/сериал про волочкову/web/настя.jpg'},
+      {img:'media/Мультфильмы/сериал про волочкову/web/сулейман.jpg'},
+    ]},
+  { id:'films', icon:'🎞', title:'Мультсериал «Милый Убл*док»', sub:'AI-анимация', type:'files', wide:true,
+    desc:'Авторский AI-мультсериал в эстетике средневековой миниатюры: замки, троны, интриги и дерзкий юмор. Персонажи, декорации и анимация созданы с помощью нейросетей. <span class="mark"><b>Суммарно 526 тыс. просмотров</b></span> за две серии.',
+    peek:[
+      'media/Мультфильмы/сериал про крида/web/трон.jpg',
+      'media/Мультфильмы/сериал про крида/web/вышка.jpg',
+      'media/Мультфильмы/сериал про крида/web/девушки в ряд.jpg',
+    ],
+    files:[
+      {name:'1 серия', tag:'Мультсериал', dur:'', src:'media/Мультфильмы/сериал про крида/1 серия.mp4',
+       stats:'media/Мультфильмы/сериал про крида/статистика 1 серия.jpg', views:'139 тыс. просмотров'},
+      {name:'2 серия', tag:'Мультсериал', dur:'', src:'media/Мультфильмы/сериал про крида/2 серия.mp4',
+       stats:'media/Мультфильмы/сериал про крида/статистика 2 серия.jpg', views:'387 тыс. просмотров'},
+      // кадры без подписей
+      {img:'media/Мультфильмы/сериал про крида/web/вышка.jpg'},
+      {img:'media/Мультфильмы/сериал про крида/web/девушки в ряд.jpg'},
+      {img:'media/Мультфильмы/сериал про крида/web/крид.jpg'},
+      {img:'media/Мультфильмы/сериал про крида/web/синяк.jpg'},
+      {img:'media/Мультфильмы/сериал про крида/web/трон.jpg'},
+    ]},
+  { id:'reels', icon:'📱', title:'Короткие истории', sub:'8 историй', type:'files', wide:true,
+    desc:'Законченные истории в одну серию: сказки, пародии и абсурдный юмор в самых разных стилях — от русской народной росписи до готики и старинной живописи. Персонажи, декорации и анимация созданы с помощью нейросетей. <span class="mark"><b>Суммарно 280 тыс. просмотров</b></span>.',
+    peek:[
+      CART + 'web/прошка и золотой ключик (3).jpg',
+      CART + 'web/не та дверь (2).jpg',
+      CART + 'web/голден ретривер (4).jpg',
+    ],
+    // Мультфильм: название, файл видео, кадры (по порядку), просмотры
+    files:[
+      cartoon('Прошка и Золотой Ключик', 'прошка и золотой ключик.mp4',
+        ['прошка и золотой ключик.jpg','прошка и золотой ключик (2).jpg','прошка и золотой ключик (3).jpg','прошка и золотой ключик (4).jpg'], '82 тыс. просмотров'),
+      cartoon('Не та дверь', 'не та дверь.mp4',
+        ['не та дверь (1).jpg','не та дверь (2).jpg','не та дверь (3).jpg','не та дверь (4).jpg'], '51 тыс. просмотров'),
+      cartoon('Позовите Олега!', 'позовите Олега!.mp4',
+        ['Позовите Олега! (1).jpg','Позовите Олега! (2).jpg','Позовите Олега! (3).jpg','Позовите Олега! (4).jpg'], '21 тыс. просмотров'),
+      cartoon('Осторожно, Собчачка', 'Осторожно, Собчачка.mp4',
+        ['Осторожно, Собчачка (1).jpg','Осторожно, Собчачка (2).jpg','Осторожно, Собчачка (3).jpg','Осторожно, Собчачка (4).jpg'], '23 тыс. просмотров'),
+      cartoon('Джига и волшебный рехаб', 'Джига и волшебный рехаб.mp4',
+        ['джига и волшебный рехаб (1).jpg','джига и волшебный рехаб (2).jpg','джига и волшебный рехаб (3).jpg','джига и волшебный рехаб (4).jpg'], '21 тыс. просмотров'),
+      cartoon('Голден ретривер', 'Голден ретривер.mp4',
+        ['голден ретривер (1).jpg','голден ретривер (3).jpg','голден ретривер (4).jpg','голден ретривер (5).jpg'], '37 тыс. просмотров'),
+      cartoon('Зондбе!', 'Зондбе!.mp4',
+        ['Зондбе (1).jpg','Зондбе (2).jpg','Зондбе (3).jpg','Зондбе (4).jpg'], '10 тыс. просмотров'),
+      // вертикальный 9:16 — видео и кадры стоят в один ряд
+      { ...cartoon('Гарри Поттер и Тренажёрная комната', 'Гарри и тренажерная комната.mp4',
+        ['Гарри и тренажерная комната (1).jpg','Гарри и тренажерная комната (2).jpg','Гарри и тренажерная комната (3).jpg','Гарри и тренажерная комната (4).jpg'], '35 тыс. просмотров'),
+        vertical:true },
+    ]},
+  { id:'ads', icon:'🎞', title:'AI-реализм', sub:'Короткие фильмы', type:'files', wide:true,
+    desc:'Короткие фильмы в кинематографичном реалистичном стиле: живые эмоции, свет как в большом кино и истории, которые сложно отличить от настоящих съёмок. Персонажи, локации и анимация созданы с помощью нейросетей.',
+    peek:[
+      FILM + 'Леший/web/0_1.jpg',
+      FILM + 'Посылка/web/0_0.jpg',
+      FILM + 'Эльвира/web/Эльвира (2).jpg',
+    ],
+    // Фильм: папка, название, файл видео, кадры (по порядку)
+    files:[
+      film('Эльвира', 'Эльвира', 'Эльвира.mp4', ['Эльвира (1).jpg','Эльвира (2).jpg','Эльвира (3).jpg','Эльвира (1)-j.jpg']),
+      film('Посылка', 'Посылка', 'Посылка.mp4', ['0_0.jpg','0_0 (1).jpg','0_0 (2).jpg','0_1.jpg','0_2.jpg','0_3.jpg']),
+      film('Соседки', 'Соседки', 'Соседки.mp4', ['0_0.jpg','0_1.jpg','0_2.jpg','5217855150171561386-j.jpg']),
+      film('Леший', 'Леший', 'Леший.mp4', ['0_1.jpg','0_1 (2).jpg','0_2 (1).jpg','0_2.jpg']),
+    ]},
+  // hidden — окна есть, но на рабочем столе папки нет (открываются из профиля и шапки)
+  { id:'sims', icon:'', title:'Связаться', sub:'Написать мне', type:'contact', sims:true, hidden:true },
+];
+
+/* ---------- 3D-плюмбоб ---------- */
+const GEM_FACES = '<div class="g3-k"><div class="g3-tilt"><div class="g3-spin">' +
+  ['t1','t2','t3','t4'].map(c => `<div class="f t ${c}"></div>`).join('') +
+  ['b1','b2','b3','b4'].map(c => `<div class="f b ${c}"></div>`).join('') +
+  '</div></div></div>';
+function gem3d(k){ return `<div class="g3" style="--k:${k}" aria-hidden="true">${GEM_FACES}</div>`; }
+document.querySelectorAll('.g3:empty').forEach(el => el.innerHTML = GEM_FACES);
+
+/* ---------- Рендер рабочего стола ---------- */
+const desk = document.getElementById('desk');
+const shown = folders.filter(f => !f.hidden);
+const pad = n => String(n).padStart(2, '0');
+document.getElementById('counter').textContent = `01 — ${pad(shown.length)}`;
+// Все папки в один ряд
+desk.style.setProperty('--cols', shown.length);
+// Подпись под папкой: сколько внутри видео и кадров
+function meta(f){
+  if (!f.files) return f.sub;
+  const v = f.files.filter(x => x.src).length;
+  const k = f.files.reduce((s, x) => s + (x.img ? 1 : 0) + (x.frames ? x.frames.length : 0), 0);
+  return `${v} видео · ${k} ${plural(k, 'кадр', 'кадра', 'кадров')}`;
+}
+function plural(n, one, few, many){
+  const a = n % 10, b = n % 100;
+  if (a === 1 && b !== 11) return one;
+  if (a >= 2 && a <= 4 && (b < 12 || b > 14)) return few;
+  return many;
+}
+shown.forEach((f,i) => {
+  const el = document.createElement('button');
+  el.className = 'item';
+  el.type = 'button';
+  el.dataset.id = f.id;
+  let icon;
+  if (f.sims) {
+    icon = `<div class="sims-icon">${gem3d(.58)}</div>`;
+  } else if (f.doc) {
+    icon = `<div class="doc-icon"></div>`;
+  } else if (f.me) {
+    // Аватарка-«сим» с кристаллом над головой
+    icon = `<div class="me-icon">
+      <div class="me-gem">${gem3d(.2)}</div>
+      <div class="me-photo"><img src="media/аватарка/avatar.jpg" alt=""></div>
+    </div>`;
+  } else {
+    const peek = n => f.peek && f.peek[n]
+      ? ` has-img" style="background-image:url('${encodeURI(f.peek[n])}')` : '';
+    icon = `<div class="folder">
+      <div class="back"></div>
+      <div class="paper p1${peek(2)}"></div><div class="paper p2${peek(1)}"></div><div class="paper p3${peek(0)}"></div>
+      <div class="front"><span class="num">/${pad(i + 1)}</span></div>
+    </div>`;
+  }
+  const sub = meta(f);
+  el.innerHTML = `<div class="ibox">${icon}</div><span class="label">${f.title}${sub ? `<small>${sub}</small>` : ''}</span>`;
+  el.addEventListener('click', () => openWindow(f));
+  desk.appendChild(el);
+});
+
+// Showreel крутится по кругу, только пока блок виден на экране
+(() => {
+  const box = document.getElementById('showreel');
+  const v = box.querySelector('video');
+  new IntersectionObserver(([e]) => {
+    e.isIntersecting ? v.play().catch(() => {}) : v.pause();
+  }, {threshold:.25}).observe(box);
+})();
+
+// Кнопки с data-open="id папки" открывают окно этой папки
+document.querySelectorAll('[data-open]').forEach(btn => btn.addEventListener('click', e => {
+  const f = folders.find(x => x.id === btn.dataset.open);
+  if (f) { e.preventDefault(); openWindow(f); }
+}));
+
+/* ---------- Содержимое окон ---------- */
+function fileCard(file, i){
+  // Картинка без подписи — открывается крупно по клику
+  if (file.img) {
+    return `<div class="file">
+      <div class="thumb is-img" onclick="openLightbox('${encodeURI(file.img)}')"><img src="${encodeURI(file.img)}" alt="" loading="lazy"></div>
+    </div>`;
+  }
+  const media = file.src
+    ? `<video src="${encodeURI(file.src)}#t=1" muted playsinline preload="metadata" onloadedmetadata="setDur(this)" onmouseenter="if(!this.controls)this.play().catch(()=>{})" onmouseleave="if(!this.controls)this.pause()" onclick="playFull(this)"></video>`
+    : `<div class="play">▶</div>`;
+  // Мультфильм: видео, подпись с просмотрами и ряд кадров под ним
+  if (file.frames) {
+    return `<div class="file cartoon${file.vertical ? ' vertical' : ''}">
+      <div class="thumb" style="background:#14161A">${media}<span class="dur">${file.dur || ''}</span></div>
+      <div class="ep-info">
+        <span class="ftag">${file.tag}</span>
+        <b>${file.name}</b>
+        ${file.views ? `<span class="views">👁 ${file.views}</span>` : ''}
+      </div>
+      <div class="frames" style="--cols:${file.frames.length > 4 ? Math.ceil(file.frames.length / 2) : 4}">${file.frames.map(src => `<div class="thumb is-img" onclick="openLightbox('${encodeURI(src)}')"><img src="${encodeURI(src)}" alt="" loading="lazy"></div>`).join('')}</div>
+    </div>`;
+  }
+  // Серия + статистика рядом, на всю ширину окна
+  if (file.stats) {
+    return `<div class="file episode${file.vertical ? ' vertical' : ''}">
+      <div class="thumb" style="background:${G[i % G.length]}">${media}<span class="dur">${file.dur || ''}</span></div>
+      <div class="thumb stats" onclick="openLightbox('${encodeURI(file.stats)}')"><img src="${encodeURI(file.stats)}" alt="Статистика: ${file.name}" loading="lazy"><span class="stats-tag">📊 Статистика</span></div>
+      <div class="ep-info">
+        <span class="ftag">${file.tag}</span>
+        <b>${file.name}</b>
+        ${file.views ? `<span class="views">👁 ${file.views}</span>` : ''}
+      </div>
+    </div>`;
+  }
+  return `<div class="file">
+    <div class="thumb" style="background:${G[i % G.length]}">${media}<span class="dur">${file.dur || ''}</span></div>
+    <span class="ftag">${file.tag}</span>
+    <b>${file.name}</b>
+  </div>`;
+}
+
+// Длительность видео подставляется сама
+function setDur(v){
+  const s = Math.round(v.duration), d = v.parentNode.querySelector('.dur');
+  if (d && !d.textContent && isFinite(s)) d.textContent = Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+}
+
+// Клик по ролику: включить звук, показать панель управления и смотреть полностью
+function playFull(v){
+  if (v.controls) return;
+  v.controls = true; v.muted = false; v.currentTime = 0; v.play().catch(() => {});
+}
+
+// Просмотр картинки крупно
+function openLightbox(src){
+  const lb = document.getElementById('lightbox');
+  lb.querySelector('img').src = src;
+  lb.classList.add('open');
+}
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
+
+function renderBody(f){
+  switch (f.type) {
+    case 'files':
+      const hasPlaceholders = f.files.some(x => !x.src && !x.img);
+      const facts = f.facts ? `<div class="facts">${f.facts.map(([n, t]) => `<div><b>${n}</b><span>${t}</span></div>`).join('')}</div>` : '';
+      return `<h3>${f.title}</h3><p class="desc">${f.desc}</p>${facts}
+        <div class="files ${f.wide ? 'wide' : ''}">${f.files.map(fileCard).join('')}</div>
+        ${hasPlaceholders ? '<p class="placeholder-note">Превью — заглушки. Скоро здесь появятся новые работы.</p>' : ''}`;
+    case 'offer':
+      return `<h3>🛍 Ролики для рекламы вашей продукции</h3>
+        <p class="desc">Все мультфильмы, фильмы и Reels из моего портфолио — это то, что я могу сделать для вашего бренда. Ролики можно использовать в рекламе: таргет, соцсети, маркетплейсы, сайт, презентации и экраны в точках продаж.</p>
+        <div class="files wide">
+          ${[
+            ['Продукт-персонаж','Ваша банка, флакон или коробка оживает и рассказывает о себе.'],
+            ['Маскот бренда','Создаю героя, который живёт во всех роликах и запоминается.'],
+            ['Мини-сериал','Серия Reels с продолжением — люди ждут следующую серию.'],
+            ['Карточки маркетплейсов','Короткие видео-обложки для WB и Ozon, которые повышают CTR.'],
+          ].map((x,i)=>`<div class="file"><div class="thumb" style="aspect-ratio:16/9;background:${G[i]}"><div class="play">✦</div></div><b>${x[0]}</b><span style="font-size:14px;color:var(--muted)">${x[1]}</span></div>`).join('')}
+        </div>
+        <p style="margin-top:22px"><a class="btn" href="#price" data-close>Смотреть цены →</a></p>`;
+    case 'price':
+      return `<h3>💸 Прайс</h3><p class="desc">Коротко о пакетах. Подробности — в разделе ниже на странице.</p>
+        <div class="box" style="border:0;padding:0">
+          <ul>
+            <li><span><b>Старт</b> — 1 Reels до 15 сек, монтаж, музыка, 1 правка</span><b>от 15 000 ₽</b></li>
+            <li><span><b>Бренд</b> — 3 Reels или ролик 60 сек, маскот, озвучка, 3 формата</span><b>от 35 000 ₽</b></li>
+            <li><span><b>Мультфильм / Фильм</b> — история до 3 мин, полный продакшн</span><b>от 80 000 ₽</b></li>
+            <li><span>Контент на месяц — 8 Reels</span><b>от 70 000 ₽</b></li>
+          </ul>
+        </div>
+        <p style="margin-top:22px"><a class="btn" href="#price" data-close>Подробный прайс →</a></p>`;
+    case 'about':
+      return `<div class="about">
+          <div class="avatar-wrap">
+            <div class="avatar-gem">${gem3d(.32)}</div>
+            <div class="avatar"><img src="media/аватарка/avatar.jpg" alt="Алёна Рябчукова"></div>
+          </div>
+          <div>
+            <h3>Привет! Я — Алёна Рябчукова</h3>
+            <p class="desc" style="margin-bottom:10px">AI-режиссёр и аниматор. Придумываю истории и превращаю их в мультфильмы, фильмы и рекламные ролики с помощью нейросетей. Мне важно, чтобы видео не просто было красивым, а цепляло, вызывало эмоцию и продавало.</p>
+            <p class="desc" style="margin-bottom:0">Работаю с малым бизнесом, блогерами, музыкантами и брендами. Беру на себя весь цикл: идея → сценарий → генерация → монтаж → звук.</p>
+            <div class="tools">
+              <span>Claude</span><span>Midjourney</span><span>Nano Banana</span><span>Sora</span>
+              <span>Seedance 2.5</span><span>Kling</span><span>Grok</span><span>ElevenLabs</span>
+              <span>Veo</span><span>GPT</span><span>Seedream</span><span>DaVinci Resolve</span><span>Figma</span>
+              <span class="more">и другие</span>
+            </div>
+          </div>
+        </div>`;
+    case 'contact':
+      return `<div style="text-align:center;padding:10px 0 6px">
+          <div style="display:flex;justify-content:center;margin-bottom:16px">${gem3d(.65)}</div>
+          <h3>Сул-сул! 👋</h3>
+          <p class="desc" style="margin:8px auto 22px">Напишите мне — обсудим идею вашего ролика. Первая консультация и идея — бесплатно.</p>
+          <div class="links" style="justify-content:center">
+            <a class="chip" style="background:#F3F3F1" href="https://t.me/alenamarkova26" target="_blank" rel="noopener">✈️ Telegram</a>
+            <a class="chip" style="background:#F3F3F1" href="https://www.instagram.com/creator_alena/" target="_blank" rel="noopener">📸 Instagram*</a>
+            <a class="chip" style="background:#F3F3F1" href="https://www.tiktok.com/@creator_alena1" target="_blank" rel="noopener">🎵 TikTok</a>
+          </div>
+          <p class="meta-note" style="max-width:420px;margin:16px auto 0">* Meta Platforms Inc. признана экстремистской организацией, её деятельность запрещена на территории РФ.</p>
+        </div>`;
+  }
+}
+
+/* ---------- Окно: открыть / закрыть / перетащить ---------- */
+const overlay = document.getElementById('overlay');
+const win = document.getElementById('win');
+const winBody = document.getElementById('winBody');
+let lastFocus = null;
+
+function openWindow(f){
+  lastFocus = document.activeElement;
+  document.getElementById('winPath').textContent = 'Рабочий стол › ' + f.title;
+  winBody.innerHTML = renderBody(f);
+  win.style.transform = '';
+  win.style.animation = 'none'; win.offsetHeight; win.style.animation = '';
+  overlay.classList.add('open');
+  overlay.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden';
+  win.querySelector('.lights .r').focus();
+}
+function closeWindow(){
+  overlay.classList.remove('open');
+  overlay.setAttribute('aria-hidden','true');
+  document.body.style.overflow = '';
+  winBody.querySelectorAll('video').forEach(v => v.pause());
+  if (lastFocus) lastFocus.focus({preventScroll:true});
+}
+overlay.addEventListener('click', e => {
+  if (e.target === overlay || e.target.closest('[data-close]')) closeWindow();
+});
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if (document.getElementById('lightbox').classList.contains('open')) closeLightbox();
+  else if (overlay.classList.contains('open')) closeWindow();
+});
+
+// Перетаскивание окна за заголовок
+(() => {
+  const bar = document.getElementById('titlebar');
+  let sx, sy, ox = 0, oy = 0, drag = false;
+  bar.addEventListener('pointerdown', e => {
+    if (e.target.closest('button') || window.innerWidth < 700) return;
+    drag = true; sx = e.clientX; sy = e.clientY;
+    const m = win.style.transform.match(/translate\((-?[\d.]+)px,\s*(-?[\d.]+)px\)/);
+    ox = m ? +m[1] : 0; oy = m ? +m[2] : 0;
+    bar.setPointerCapture(e.pointerId);
+  });
+  bar.addEventListener('pointermove', e => {
+    if (!drag) return;
+    win.style.transform = `translate(${ox + e.clientX - sx}px, ${oy + e.clientY - sy}px)`;
+  });
+  bar.addEventListener('pointerup', () => drag = false);
+})();
+
+/* ---------- Часы ---------- */
+const clock = document.getElementById('clock');
+function tick(){
+  const d = new Date();
+  clock.textContent = d.toLocaleDateString('ru-RU',{weekday:'short', day:'numeric', month:'short'}) + '  ' +
+    d.toLocaleTimeString('ru-RU',{hour:'2-digit', minute:'2-digit'});
+}
+tick(); setInterval(tick, 10000);
+
+/* ---------- Появление при скролле ---------- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+}, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ---------- Блёстки за курсором ---------- */
+(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // Тонкие розовые звёздочки (шаблон #star вверху страницы)
+  const star = () => `<svg viewBox="0 0 24 24"><use href="#star"/></svg>`;
+  let last = 0, lx = 0, ly = 0;
+
+  function spawn(x, y){
+    const s = document.createElement('span');
+    s.className = 'sparkle';
+    const size = 7 + Math.random() * 11;
+    s.style.setProperty('--s', size + 'px');
+    s.style.setProperty('--dx', (Math.random() - .5) * 36 + 'px');
+    s.style.setProperty('--dy', (Math.random() * 26 + 8) + 'px');
+    s.style.left = x + 'px';
+    s.style.top = y + 'px';
+    s.innerHTML = star();
+    document.body.appendChild(s);
+    s.addEventListener('animationend', () => s.remove());
+  }
+
+  function onMove(x, y){
+    const now = performance.now();
+    const dist = Math.hypot(x - lx, y - ly);
+    if (now - last < 28 || dist < 6) return;
+    last = now; lx = x; ly = y;
+    spawn(x + (Math.random() - .5) * 10, y + (Math.random() - .5) * 10);
+    if (Math.random() < .35) spawn(x + (Math.random() - .5) * 24, y + (Math.random() - .5) * 24);
+  }
+
+  window.addEventListener('mousemove', e => onMove(e.clientX, e.clientY), {passive:true});
+  window.addEventListener('touchmove', e => { const t = e.touches[0]; onMove(t.clientX, t.clientY); }, {passive:true});
+})();
+</script>
+</body>
+</html>
