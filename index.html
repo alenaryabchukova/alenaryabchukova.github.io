@@ -8,12 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;900&display=swap" rel="stylesheet">
+<!-- Motion (motion.dev) — плавные анимации появления. Блоки прячутся до старта анимации;
+     если библиотека не загрузится, страховка через 1,5 с всё равно всё покажет. -->
+<script>document.documentElement.classList.add('pre');setTimeout(()=>document.documentElement.classList.remove('pre'),1500)</script>
+<script src="https://cdn.jsdelivr.net/npm/motion@11.11.13/dist/motion.js" defer></script>
 <style>
   :root{
     --bg:#F3F3F1;
     --dot:#D5D5D0;
     --ink:#1E252B;
-    --muted:#6B7177;
+    --muted:#645B62;      /* тёплый серо-лиловый, в тон розовой палитре */
+    --pink-text:#C2477F;  /* розовый для мелкого текста: читаемый на белом (4.7:1) */
     --pink:#F7A8C8;
     --pink-d:#F07FB0;
     --pink-l:#FCD3E4;
@@ -37,7 +42,7 @@
     line-height:1.5;
   }
   a{color:inherit}
-  .mark{background:linear-gradient(transparent 52%, var(--yellow) 52%, var(--yellow) 92%, transparent 92%);padding:0 .1em}
+  .mark{background:linear-gradient(transparent 55%, var(--pink-l) 55%, var(--pink-l) 92%, transparent 92%);padding:0 .1em}
   .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
   @media (max-width:600px){.wrap{padding:0 16px}}
 
@@ -60,7 +65,9 @@
   .menubar nav{display:flex;gap:16px}
   .menubar nav a{text-decoration:none;opacity:.75}
   .menubar nav a:hover{opacity:1}
-  .menubar .right{margin-left:auto;display:flex;align-items:center;gap:14px;opacity:.8}
+  .menubar nav{margin-left:auto}
+  /* Видимый фокус для навигации с клавиатуры */
+  a:focus-visible,button:focus-visible{outline:2px solid var(--pink-d);outline-offset:3px;border-radius:8px}
   @media (max-width:720px){.menubar nav{display:none}}
 
   /* ---------- Плюмбоб ---------- */
@@ -102,7 +109,6 @@
     display:inline-flex;align-items:center;gap:8px;
     font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
   }
-  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink-d)}
   .top-eyebrow{margin:26px 0 14px}
   /* Обе колонки одной высоты: верх и низ на одной линии */
   .studio{display:grid;grid-template-columns:320px 1fr;gap:24px;align-items:stretch;margin-top:28px}
@@ -113,12 +119,12 @@
   .profile .avatar-card{
     aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:#F1E4D6;
     border:8px solid #fff;box-shadow:0 24px 44px -26px rgba(30,37,43,.5);
-    transform:rotate(-2deg);transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+    transform:rotate(-2deg);transition:transform .5s cubic-bezier(.22,1,.36,1);
   }
   .profile .avatar-card img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
   .profile:hover .avatar-card{transform:rotate(0) scale(1.01)}
   .profile h1{font-family:Unbounded;font-weight:600;font-size:34px;line-height:1.05;letter-spacing:-.02em;margin-top:22px}
-  .profile .role{margin-top:8px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-d)}
+  .profile .role{margin-top:8px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-text)}
   .profile .bio{margin-top:14px;font-size:15px;line-height:1.55;color:#3a4249}
   .profile .actions{display:flex;flex-wrap:wrap;gap:8px}
   .work-head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;margin:-22px 4px 0;position:relative;z-index:1}
@@ -157,10 +163,10 @@
   }
   .list li:last-child a{border-bottom:0}
   .meta-note{margin-top:10px;font-size:11px;line-height:1.4;color:var(--muted)}
-  .list a:hover{color:var(--pink-d)}
+  .list a:hover{color:var(--pink-text)}
   .list .n{font-style:normal;font-size:11px;color:var(--muted);margin-right:12px}
   .list .arr{transition:transform .2s;color:var(--muted)}
-  .list a:hover .arr{transform:translate(3px,-3px);color:var(--pink-d)}
+  .list a:hover .arr{transform:translate(3px,-3px);color:var(--pink-text)}
   @media (max-width:900px){
     .studio{grid-template-columns:1fr}
     .profile{max-width:440px;width:100%;margin:0 auto}
@@ -191,12 +197,6 @@
     display:grid;grid-template-columns:repeat(var(--cols,4),1fr);gap:40px 12px;
     overflow:hidden;container-type:inline-size;
   }
-  .desktop::before{
-    content:"WHAT IS READY? SET. CREATE!";
-    position:absolute;inset:0;display:grid;place-items:center;text-align:center;
-    font-family:Unbounded;font-weight:900;font-size:clamp(28px,4.6vw,60px);line-height:.95;
-    color:rgba(30,37,43,.04);padding:30px;pointer-events:none;letter-spacing:-.03em;
-  }
   /* Размер папки подстраивается под ширину блока с папками */
   .desktop .item{--fw:min(156px, calc(100cqw / var(--cols,4) - 26px))}
   @media (max-width:520px){
@@ -215,14 +215,14 @@
     padding:3px 9px;border-radius:7px;transition:background .2s,color .2s;
   }
   .item .label small{display:block;font-weight:500;color:var(--muted);font-size:12px}
-  .item:hover .label{background:#3b82f6;color:#fff}
+  .item:hover .label{background:var(--ink);color:#fff}
   .item:hover .label small{color:rgba(255,255,255,.8)}
 
   /* Папка */
   .folder{
     position:relative;width:var(--fw,128px);height:calc(var(--fw,128px) * .75);
     perspective:500px;
-    transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+    transition:transform .35s cubic-bezier(.22,1,.36,1);
   }
   /* Матовое розовое стекло */
   .folder .back{
@@ -239,7 +239,7 @@
   .folder .paper{
     position:absolute;left:12%;right:12%;top:6px;bottom:10px;border-radius:5px;
     background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);
-    transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+    transition:transform .4s cubic-bezier(.22,1,.36,1);
     overflow:hidden;
   }
   .folder .paper.p2{left:18%;right:6%;background:#FFF6D6;top:10px}
@@ -266,7 +266,7 @@
       inset 0 -12px 22px rgba(255,255,255,.22),
       0 16px 26px -14px rgba(240,127,176,.85);
     transform-origin:bottom center;
-    transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+    transition:transform .4s cubic-bezier(.22,1,.36,1);
     overflow:hidden;
   }
   .folder .front .num{
@@ -278,18 +278,17 @@
     background:linear-gradient(120deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,0) 38%);
     pointer-events:none;
   }
-  .item:hover .folder,.item:focus-visible .folder{transform:translateY(-8px) rotate(-3deg);animation:wiggle .9s ease-in-out .35s infinite}
+  .item:hover .folder,.item:focus-visible .folder{transform:translateY(-8px) rotate(-2deg)}
   .item:hover .folder .front,.item:focus-visible .folder .front{transform:rotateX(-28deg)}
   .item:hover .paper.p1{transform:translateY(-22px) rotate(-7deg)}
   .item:hover .paper.p2{transform:translateY(-30px) rotate(6deg)}
   .item:hover .paper.p3{transform:translateY(-16px) rotate(-1deg)}
-  @keyframes wiggle{0%,100%{transform:translateY(-8px) rotate(-3deg)}50%{transform:translateY(-11px) rotate(2deg)}}
 
   /* Иконка-файл (для «Обо мне», «Контакты») */
   .doc-icon{
     width:calc(var(--fw,128px) * .62);height:calc(var(--fw,128px) * .8);border-radius:8px;background:#fff;position:relative;
     box-shadow:0 12px 22px -14px rgba(0,0,0,.5);display:grid;place-items:center;font-size:30px;
-    transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+    transition:transform .35s cubic-bezier(.22,1,.36,1);
     clip-path:polygon(0 0,72% 0,100% 22%,100% 100%,0 100%);
   }
   .doc-icon::before{ /* строчки текста */
@@ -307,14 +306,14 @@
   .me-photo{
     aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:#F1E4D6;
     border:4px solid #fff;box-shadow:0 12px 22px -12px rgba(30,37,43,.5);
-    transform:rotate(-3deg);transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+    transform:rotate(-3deg);transition:transform .35s cubic-bezier(.22,1,.36,1);
   }
   .me-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
   .item:hover .me-photo{transform:translateY(-6px) rotate(2deg)}
   .item:hover .me-gem .g3-spin{animation-duration:1.4s}
   .sims-icon{
     display:grid;place-items:end center;
-    transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+    transition:transform .35s cubic-bezier(.22,1,.36,1);
   }
   .item:hover .sims-icon{transform:translateY(-10px) scale(1.08)}
 
@@ -336,7 +335,7 @@
     width:min(920px,100%);max-height:min(82vh,760px);display:flex;flex-direction:column;
     background:#fff;border-radius:16px;overflow:hidden;
     box-shadow:0 40px 80px -20px rgba(0,0,0,.45), 0 0 0 1px rgba(0,0,0,.06);
-    animation:pop .35s cubic-bezier(.34,1.56,.64,1);
+    animation:pop .35s cubic-bezier(.22,1,.36,1);
     position:relative;
   }
   @keyframes pop{from{transform:scale(.85) translateY(20px);opacity:0}to{transform:none;opacity:1}}
@@ -409,7 +408,7 @@
   .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:-6px 0 24px}
   .facts div{background:var(--pink-l);border-radius:18px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
   .facts b{font-family:Unbounded;font-weight:600;font-size:clamp(18px,2.6vw,28px);letter-spacing:-.02em;line-height:1.05}
-  .facts span{font-size:13px;color:var(--muted);font-weight:700}
+  .facts span{font-size:13px;color:#5B3A4A;font-weight:700}
   @media (max-width:560px){.facts{grid-template-columns:1fr}}
   .ep-info{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
   .ep-info b{font-size:16px}
@@ -432,7 +431,7 @@
   }
   .thumb .dur{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.5);font-size:11px;font-weight:700;padding:2px 7px;border-radius:6px}
   .file b{font-size:14px;line-height:1.25}
-  .file .ftag{font-size:11px;font-weight:700;color:var(--pink-d);text-transform:uppercase;letter-spacing:.05em}
+  .file .ftag{font-size:11px;font-weight:700;color:var(--pink-text);text-transform:uppercase;letter-spacing:.05em}
   .win-body .placeholder-note{font-size:12px;color:var(--muted);margin-top:20px;border-top:1px dashed var(--line);padding-top:12px}
   .win-body .about{display:grid;grid-template-columns:160px 1fr;gap:24px;align-items:start}
   .win-body .avatar-wrap{position:relative;margin-top:50px;max-width:160px}
@@ -458,13 +457,11 @@
     100%{transform:translate(var(--dx),var(--dy)) scale(.3) rotate(70deg);opacity:0}
   }
 
-  /* Появление при скролле */
-  .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s, transform .7s}
-  .reveal.in{opacity:1;transform:none}
+  /* До старта анимации Motion блоки скрыты (см. скрипт в <head>) */
+  .pre .profile,.pre #desk,.pre .cards > .card,.pre #showreel{opacity:0}
 
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none !important;transition:none !important}
-    .reveal{opacity:1;transform:none}
   }
 </style>
 </head>
@@ -501,10 +498,6 @@
     <a href="#top" data-open="about">Обо мне</a>
     <a href="#contacts">Контакты</a>
   </nav>
-  <div class="right">
-    <span>🔋</span><span>📶</span>
-    <span id="clock">--:--</span>
-  </div>
 </header>
 
 <main class="wrap" id="top">
@@ -529,7 +522,6 @@
       <div class="panel desktop" id="desk">
         <div class="work-head">
           <span class="eyebrow">Проекты</span>
-          <span class="counter" id="counter"></span>
         </div>
         <!-- папки добавляются сюда из JS -->
       </div>
@@ -742,7 +734,6 @@ document.querySelectorAll('.g3:empty').forEach(el => el.innerHTML = GEM_FACES);
 const desk = document.getElementById('desk');
 const shown = folders.filter(f => !f.hidden);
 const pad = n => String(n).padStart(2, '0');
-document.getElementById('counter').textContent = `01 — ${pad(shown.length)}`;
 // Все папки в один ряд
 desk.style.setProperty('--cols', shown.length);
 // Подпись под папкой: сколько внутри видео и кадров
@@ -981,20 +972,29 @@ document.addEventListener('keydown', e => {
   bar.addEventListener('pointerup', () => drag = false);
 })();
 
-/* ---------- Часы ---------- */
-const clock = document.getElementById('clock');
-function tick(){
-  const d = new Date();
-  clock.textContent = d.toLocaleDateString('ru-RU',{weekday:'short', day:'numeric', month:'short'}) + '  ' +
-    d.toLocaleTimeString('ru-RU',{hour:'2-digit', minute:'2-digit'});
-}
-tick(); setInterval(tick, 10000);
-
-/* ---------- Появление при скролле ---------- */
-const io = new IntersectionObserver(entries => {
-  entries.forEach(en => { if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-}, {threshold:.12});
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+/* ---------- Появление блоков (библиотека Motion) ----------
+   Блоки скрыты классом .pre на <html>. Если Motion не загрузился
+   или включено «уменьшение движения» — сразу всё показываем. */
+// Motion подключён с defer — он готов к событию DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.documentElement;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!window.Motion || reduced) { root.classList.remove('pre'); return; }
+  const { animate, stagger, inView } = window.Motion;
+  const ease = [0.22, 1, 0.36, 1];
+  document.getElementById('showreel').style.opacity = 0;  // покажется при прокрутке
+  root.classList.remove('pre');
+  animate('.profile, #desk, .cards > .card', { opacity: [0, 1], y: [24, 0] },
+          { duration: 0.7, delay: stagger(0.08), ease });
+  animate('#desk .item', { opacity: [0, 1], y: [14, 0] },
+          { duration: 0.6, delay: stagger(0.06, { startDelay: 0.25 }), ease });
+  inView('#showreel', info => {
+    const el = info.target || info;  // в разных версиях Motion приходит запись или сам элемент
+    animate(el, { opacity: [0, 1], y: [40, 0] }, { duration: 0.8, ease });
+    // страховка: в любом случае полностью показать после анимации
+    setTimeout(() => { el.style.opacity = 1; el.style.transform = 'none'; }, 1500);
+  }, { amount: 0.15 });
+});
 
 /* ---------- Блёстки за курсором ---------- */
 (() => {
